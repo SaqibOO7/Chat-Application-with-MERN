@@ -18,15 +18,13 @@ const __dirname = path.resolve();
 dotenv.config();
 
 //middle ware used here 
-app.use(express.json());     // to parse the incoming requests with JSON payloads (from req.body)
+app.use(express.json());
 app.use(cookieParser());
 
 //FOR AUTHENTICATION
 app.use('/api/auth', authRoutes)
-
 //FOR MESSAGES
 app.use('/api/messages', messageRoutes)
-
 //FOR USERS
 app.use('/api/users', userRoutes)
 
@@ -37,10 +35,7 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 })
 
-// app.get('/', (req, res) => {
 
-//     res.send("Hello world!!!!");
-// })
 
 server.listen(PORT, () => {
 
